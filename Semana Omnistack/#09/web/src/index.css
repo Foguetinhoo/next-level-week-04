@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Kavivanar&family=Libre+Baskerville:wght@700&family=Montserrat&family=Noto+Sans&family=Oswald&family=Roboto&family=Roboto+Mono&family=Roboto+Slab&family=Titillium+Web&display=swap');
+*{
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  list-style: none;
+  text-decoration: none !important;
+  outline: none !important;
+  user-select: none;
+}
+body{
+  font-family:'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background: url('./assets/back.jpg') no-repeat;
+    background-size: cover;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html, body,#root{
+  min-height: 100%;
+}
+
+.loading{
+  color:white;
+  text-align: center;
+  font-family: 'Fira Code';
+  margin-top:10px;
+
+}
