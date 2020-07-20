@@ -81,6 +81,7 @@ export default function New({ history }) {
           timeout={300}
         >
           <Content>
+            {}
             <form onSubmit={handleSubmit}>
               <label
                 id="file_t"
