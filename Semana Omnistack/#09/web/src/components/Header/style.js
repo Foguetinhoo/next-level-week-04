@@ -5,10 +5,13 @@ export const HeaderS = styled.header`
     justify-content:space-between;
     align-items:center; 
     background:rgba(0,0,0,.5);
-h3{
+    h3{
     /* margin:0 50px 0 20%; */
-    color:white;
-}
+        color:white;
+    }
+    img{
+        height:40px;
+    }
 `;
 export const User = styled.div`
    padding:5px 15px;

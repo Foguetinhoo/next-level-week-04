@@ -13,6 +13,7 @@ import Label from '../../components/Label/index'
 
 import Message from '../../utils/message'
 import api from '../../services/api'
+import logo from '../../assets/logo2.png'
 
 
 export default function Login({ history }) {
@@ -45,14 +46,14 @@ export default function Login({ history }) {
       Message({ message: 'email invalido', type: 'warning' })
     } else {
       const response = await api.post('/sessions/enter', { email })
-      console.log(response.data)
       await Message(response.data)
       const { user, type } = response.data
       if (type === 'success') {
         localStorage.setItem('user', JSON.stringify(user))
         history.push('/dashboard')
+        setEmail('')
       }
-      setEmail('')
+     
     }
     return;
   }
@@ -63,11 +64,11 @@ export default function Login({ history }) {
           timeout={400}
         >
           <Div>
-            <Logo size={50} />
+            <img src={logo} alt="logo" />
             <Content>
               <p>
                 Ofereça <strong>spots</strong> para programadores e encontre <strong>talentos</strong> na web
-        </p>
+              </p>
               <form onSubmit={handleSubmit} >
                 <Label forI="email" htmlValue="Email *" />
                 <Input

@@ -10,7 +10,8 @@ import { faSignOutAlt, faCheck, faTimes } from '@fortawesome/free-solid-svg-icon
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
-import Logo from '../Logo/index'
+// import Logo from '../Logo/index'
+import logo from '../../assets/logo2.png'
 
 export default function Header({name,history}){
 const [show,setShow] = useState(false)
@@ -31,7 +32,8 @@ const [show,setShow] = useState(false)
             <FontAwesomeIcon icon={faUserCircle} /> {name}
           </User>
         </Link>
-        <Logo size={35} />
+        <img src={logo} alt="logo"/>
+        {/* <Logo size={35} /> */}
         <ButtonLogout  onClick={handleShow}> Sair  <FontAwesomeIcon icon={faSignOutAlt} /> </ButtonLogout>
       </HeaderS>
 
