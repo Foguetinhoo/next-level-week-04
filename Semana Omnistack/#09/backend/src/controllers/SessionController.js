@@ -25,15 +25,17 @@ module.exports = {
         }
     },
     async enter(req,res){
+        console.log(req.body)
         const {email } = req.body;
-        console.log(email)
+       
         if(!email) {
             return res.json({
             type:'error',
+
             message:`campos vazios`,
         });
         }
-        let user  = await User.findOne({ email })
+        let user  = await User.findOne({ email }) 
         if(user){
             return res.status(200).json({
                 type:'success', 
@@ -43,7 +45,7 @@ module.exports = {
         }
         return res.status(200).json({
             type:'error', 
-            message:`email não existe`
+            message:'email informado não existe'
         })
     }
 }

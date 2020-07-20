@@ -2,13 +2,17 @@ const Spot = require('../models/Spot');
 const User = require('../models/User');
 module.exports = {
     async index(req, rep) {
-        const { tech } = req.query;
-        const spots = await Spot.find({ technologys: tech })
-        console.log(spots)
-        if (spots) {
-            return rep.status(200).json({
-                spots
-            })
+        try {
+            const { tech } = req.query;
+            console.log(tech)
+            const spots = await Spot.find({ technologys: tech })
+            console.log(spots)
+            if (spots) {
+                return rep.status(200).json(spots)
+            }
+        } catch (err) {
+            console.log(err)
+            return rep.status(400).json({type:'error',message:err.message})
         }
     },
     async create(req, resp) {

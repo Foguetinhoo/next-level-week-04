@@ -2,6 +2,7 @@ const express = require('express');
 const cors =  require('cors')
 const routes =  require('./routes/routes');
 const path = require('path')
+const morgan = require('morgan')
 
 const mongoose =  require('mongoose');
 const app =  express();
@@ -16,8 +17,10 @@ mongoose.connect('mongodb://localhost:27017',{
     useUnifiedTopology:true
 })
 
-app.use(cors())
+
 app.use(express.json());
+app.use(cors())
+app.use(morgan('dev'))  
 app.use('/v1/api',routes);
 app.use('/v1/api/files',express.static(path.resolve(__dirname,'..','uploads')))
 // req.params para router params
