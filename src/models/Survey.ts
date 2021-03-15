@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 @Entity("surveys")
 class Survey{
     @PrimaryColumn()
-    readonly id: string;
+    readonly survey_id: string;
 
     @Column()
     title: string;
@@ -15,8 +15,8 @@ class Survey{
     created_at: Date;
         
     constructor() {
-        if (!this.id) {
-            this.id = uuid()
+        if (!this.survey_id) {
+            this.survey_id = uuid()
         }
     }
 }

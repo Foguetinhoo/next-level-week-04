@@ -8,7 +8,7 @@ export class createSurveys1614203665179 implements MigrationInterface {
                 name: "surveys",
                 columns: [
                     {
-                        name: "id",
+                        name: "survey_id",
                         type: "uuid",
                         isPrimary: true
                     },
