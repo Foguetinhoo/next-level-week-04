@@ -1,10 +1,55 @@
 
+<style>
+    .container{
+        width: 880px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+    }
+    .values{
+        padding: 12px;
+        background: #825;
+        color: #FFF;
+        border-radius: 6px;
+        width: 15px;
+        text-align: center;
+        text-decoration: none;
+        margin-right: 2.5px;
+    }
+    .level{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        width: 350px;
+    }
+    .answers{
+        display: flex;
+        justify-content: space-between;
+        width: 350px;
+        margin-bottom: 20px;
+    }
+    .values:nth-child(n+1):nth-child(-n+5):hover{
+        transition: all 0.3s ease-in;
+        background: rgb(231, 36, 36);
+    }
+    .values:nth-child(n+6):nth-child(-n+10):hover{
+        transition: all 0.3s ease-in;
+        background: rgb(29, 228, 39);
+    }
+        
+</style>
 <div class="container">
     <label>Olá <strong>{{name}}</strong>! Tudo Bem?</label>
     <h3>{{title}}</h3><br />
     <strong>{{description}}</strong>
     <br />
     <br />
+    <div class="level">
+        <span>Pouco provável</span>
+        <span>Muito provável</span>
+    </div>
     <div class="answers">
         <a class="values" href="">1</a>
         <a class="values" href="">2</a>
@@ -18,5 +63,5 @@
         <a class="values" href="">10</a>
     </div>
     <strong>Sua opnião é muito importante para nossa evolução!</strong>
-    <h3>Equipe | <strong> Rocket</strong></h3>
+    <h3>Equipe <strong> Little Rocket</strong></h3>
 </div>
