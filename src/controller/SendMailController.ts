@@ -5,6 +5,7 @@ import { SurveyRepository } from "../repositories/SurveyRepository";
 import { SurveyUserRepository } from "../repositories/SurveyUsersRepository";
 import { UserRepository } from "../repositories/UserRepositories";
 import SendMailService from "../services/SendMailService";
+import { AppError } from "../error/AppError";
 
 class SendMailController{
     
@@ -14,7 +15,6 @@ class SendMailController{
     async execute(request:Request, response:Response) {
         try {
             const { survey_id, email } = request.body
-            console.log("survey => " + survey_id)
 
             const userRepository = getCustomRepository(UserRepository)
             const surveyRepository = getCustomRepository(SurveyRepository)
@@ -25,17 +25,9 @@ class SendMailController{
             const npcPath = resolve(__dirname, "..", "views", "emails", "NPCmail.hbs");
 
 
-            if (!survey) return response.status(404)
-                .json({
-                    type: "error",
-                    message: "survey not found"
-                })
-
-            if (!alreadyUser) return response.status(404)
-                .json({
-                    type: "error",
-                    message: "email não existe na base de dados"
-                })
+            if (!survey) throw new AppError("survey not found", 404)
+            
+            if (!alreadyUser) throw new AppError("email not exists in the database")
 
             const surveyUserAlreadyExists = await surveyUserRepository.findOne({
                 where: { user_id: alreadyUser.user_id,value: null },
@@ -76,7 +68,7 @@ class SendMailController{
 
         } catch (err)
         {
-            throw new Error(`Error found => ${err}`)
+            throw new AppError(err.message)
         }
     }
 
